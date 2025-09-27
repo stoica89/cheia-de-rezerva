@@ -1,4 +1,4 @@
-/* Reset general */
+/* ======== Reset general ======== */
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +7,7 @@
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: #f4f6f9;
+  background: #d0d6df;
   color: #222;
   line-height: 1.6;
 }
@@ -50,140 +50,54 @@ body {
   color: #e63946; /* roșu accent */
 }
 
-/* ======== Banner ======== */
+/* Banner */
 .banner {
-    position: relative;
-    width: 100%;
-    height: 75vh; /* ocupă 75% din înălțimea ecranului */
-    background: url('Images/banner.png') no-repeat center center/cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #fff;
+  background: url("Images/banner.png") no-repeat center center/cover;
+  height: 70vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(209, 202, 202);
+  text-align: center;
 }
 
 .banner::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(30,58,138,0.7), rgba(0,0,0,0.4));
-    z-index: 1;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.5), 
+    rgba(0, 0, 0, 0.5)
+  ); /* overlay semi-transparent */
+  z-index: 1;
 }
 
-.banner-overlay {
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
-    padding: 20px;
+.banner-content {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
 }
 
-.banner-overlay h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 0 3px 6px rgba(0,0,0,0.5);
+.banner h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* claritate pe orice fundal */
 }
 
-.banner-overlay p {
-    font-size: 1.3rem;
-    font-weight: 400;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.4);
+.banner p {
+  font-size: 1.3rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.5;
+  padding-left: 100px;
 }
 
-/* Responsivitate */
-@media (max-width: 768px) {
-    .nav-links {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        margin-top: 10px;
-      }
-    
-      section {
-        padding: 50px 15px;
-      }
-    
-      .descriere p {
-        font-size: 16px;
-      }
-
-    .contact {
-        padding: 40px 20px;
-      }
-    
-      .contact h2 {
-        font-size: 26px;
-      }
-    
-      .contact p {
-        font-size: 16px;
-      }
-    
-      .contact ul li {
-        font-size: 16px;
-      }
-
-    .descriere {
-        padding: 40px 20px;
-      }
-    
-      .descriere h2 {
-        font-size: 26px;
-      }
-    
-      .descriere p {
-        font-size: 16px;
-      }
-    
-      .descriere h3 {
-        font-size: 20px;
-      }
-
-    .banner {
-        height: 60vh;
-    }
-
-    .banner-overlay h1 {
-        font-size: 2rem;
-    }
-
-    .banner-overlay p {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .navbar {
-        flex-direction: column;
-        text-align: center;
-      }
-    
-      .navbar .logo img {
-        height: 35px;
-        margin-bottom: 8px;
-      }
-    
-      section h2 {
-        font-size: 24px;
-      }
-
-    .banner {
-        height: 50vh;
-    }
-
-    .banner-overlay h1 {
-        font-size: 1.6rem;
-    }
-}
-
-
-/* ======== Secțiuni ======== */
+/* ======== Secțiuni generale ======== */
 section {
   padding: 70px 20px;
   max-width: 1200px;
@@ -197,7 +111,7 @@ section h2 {
   color: #1e3a8a;
 }
 
-/* ======== Secțiunea Despre noi ======== */
+/* ======== Despre noi ======== */
 .descriere {
   background: linear-gradient(135deg, #f9fafc, #eef2f7);
   border-radius: 12px;
@@ -208,10 +122,8 @@ section h2 {
 }
 
 .descriere h2 {
-  text-align: center;
   font-size: 32px;
   font-weight: 700;
-  color: #1e3a8a;
   margin-bottom: 25px;
   position: relative;
 }
@@ -242,13 +154,12 @@ section h2 {
   color: #1e3a8a;
 }
 
-/* Avantaje – stil carduri */
+/* Avantaje – carduri */
 .descriere ul {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 20px;
   list-style: none;
-  padding: 0;
   margin: 0 auto 40px;
   max-width: 900px;
 }
@@ -258,9 +169,7 @@ section h2 {
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  font-size: 16px;
   text-align: center;
-  line-height: 1.5;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -274,7 +183,6 @@ section h2 {
   color: #1e3a8a;
   display: block;
   margin-bottom: 8px;
-  font-size: 17px;
 }
 
 /* ======== Galerie ======== */
@@ -305,7 +213,6 @@ section h2 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
-  padding: 0;
 }
 
 .preturi li {
@@ -313,7 +220,6 @@ section h2 {
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  font-size: 18px;
   text-align: center;
   transition: transform 0.2s, border 0.3s;
 }
@@ -323,7 +229,7 @@ section h2 {
   border: 2px solid #e63946;
 }
 
-/* ======== Secțiunea Contact ======== */
+/* ======== Contact ======== */
 .contact {
   background: linear-gradient(135deg, #f0f4f8, #ffffff);
   padding: 60px 25px;
@@ -358,16 +264,15 @@ section h2 {
   margin-bottom: 40px;
 }
 
-/* Listă de contacte – stil carduri */
+/* Carduri contact */
 .contact ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
   list-style: none;
-  padding: 0;
-  margin: 0 auto;
   max-width: 800px;
+  margin: 0 auto;
 }
 
 .contact ul li {
@@ -375,7 +280,6 @@ section h2 {
   background: #fff;
   padding: 20px 25px;
   border-radius: 12px;
-  font-size: 17px;
   color: #444;
   display: flex;
   align-items: center;
@@ -397,4 +301,69 @@ footer {
   background: #1e3a8a;
   color: #fff;
   margin-top: 50px;
+}
+
+/* ======== Responsivitate ======== */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  section {
+    padding: 50px 15px;
+  }
+
+  .banner {
+    height: 60vh;
+  }
+
+  .banner-overlay h1 {
+    font-size: 2rem;
+  }
+
+  .banner-overlay p {
+    font-size: 1rem;
+  }
+
+  .descriere, .contact {
+    padding: 40px 20px;
+  }
+
+  .descriere h2, .contact h2 {
+    font-size: 26px;
+  }
+
+  .descriere p, .contact p, .contact ul li {
+    font-size: 16px;
+  }
+
+  .descriere h3 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .navbar .logo img {
+    height: 35px;
+    margin-bottom: 8px;
+  }
+
+  section h2 {
+    font-size: 24px;
+  }
+
+  .banner {
+    height: 50vh;
+  }
+
+  .banner-overlay h1 {
+    font-size: 1.6rem;
+  }
 }
