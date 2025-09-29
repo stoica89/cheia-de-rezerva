@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/b5095ad51c.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Cheia de rezervă - Copiere și programare chei auto</title>
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -11,7 +15,7 @@
     <header>
       <nav class="navbar">
         <div class="logo">
-          <a href="Images/logo.png"
+          <a href="index.html"
             ><img
               src="Images/logo.png"
               alt="Cheia de rezervă - logo"
@@ -40,7 +44,9 @@
     <section id="despre" class="descriere">
       <h2>Despre noi</h2>
       <p>
-        <strong>Cheia de rezervă - Servicii de copiat si programat chei auto</strong>
+        <strong
+          >Cheia de rezervă - Servicii de copiat si programat chei auto</strong
+        >
       </p>
       <p>
         Oricât de atent ai fi, pierderea sau defectarea cheii auto se poate
@@ -50,10 +56,10 @@
       </p>
       <p>
         La <strong>Cheia de rezervă</strong>, oferim servicii profesionale de
-        copiere și programare <strong>chei auto</strong>, cu echipamente moderne și personal
-        specializat. Știm cât de important este ca mașina ta să fie mereu
-        accesibilă și sigură, de aceea venim în sprijinul tău cu soluții rapide
-        și de încredere.
+        copiere și programare <strong>chei auto</strong>, cu echipamente moderne
+        și personal specializat. Știm cât de important este ca mașina ta să fie
+        mereu accesibilă și sigură, de aceea venim în sprijinul tău cu soluții
+        rapide și de încredere.
       </p>
 
       <h3>✅ Avantajele unei chei de rezervă</h3>
@@ -93,11 +99,31 @@
     <!-- Galerie video și imagini -->
     <section id="galerie" class="galerie">
       <h2>Galerie</h2>
-      <video controls>
-        <source src="video1.mp4" type="video/mp4" />
-        Browserul tău nu suportă redarea video.
-      </video>
-      <img src="img1.jpg" alt="Exemplu cheie auto duplicată" />
+
+      <!-- Secțiunea Video -->
+      <div class="galerie-video">
+        <h3><i class="fa-solid fa-video"></i> Video</h3>
+        <div class="video-grid">
+          <video controls>
+            <source src="video2.mp4" type="video/mp4" />
+            Browserul tău nu suportă redarea video.
+          </video>
+          <video controls>
+            <source src="video2.mp4" type="video/mp4" />
+            Browserul tău nu suportă redarea video.
+          </video>
+        </div>
+      </div>
+
+      <!-- Secțiunea Imagini -->
+      <div class="galerie-imagini">
+        <h3><i class="fa-solid fa-images"></i> Imagini</h3>
+        <div class="image-grid">
+          <img src="img1.jpg" alt="Exemplu cheie auto duplicată" />
+          <img src="img2.jpg" alt="Proces copiere cheie" />
+          <img src="img3.jpg" alt="Echipamente profesionale pentru chei" />
+        </div>
+      </div>
     </section>
 
     <!-- Prețuri -->
@@ -134,7 +160,5 @@
     <footer>
       <p>&copy; 2025 Cheia de rezervă. Toate drepturile rezervate.</p>
     </footer>
-
-    <script src="app.js"></script>
   </body>
 </html>

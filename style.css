@@ -58,7 +58,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: rgb(209, 202, 202);
+  color: #fff; /* mai lizibil decât gri deschis */
   text-align: center;
 }
 
@@ -70,7 +70,7 @@ body {
   width: 100%;
   height: 100%;
   background: linear-gradient(
-    rgba(0, 0, 0, 0.5), 
+    rgba(0, 0, 0, 0.5),
     rgba(0, 0, 0, 0.5)
   ); /* overlay semi-transparent */
   z-index: 1;
@@ -187,24 +187,63 @@ section h2 {
 
 /* ======== Galerie ======== */
 .galerie {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
+  margin: 60px auto;
+  max-width: 1200px;
 }
 
-.galerie video,
-.galerie img {
+.galerie h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #1e3a8a;
+}
+
+.galerie h3 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #e63946;
+  text-align: left;
+}
+
+/* Video Grid */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+  margin-bottom: 50px;
+}
+
+.video-grid video {
   width: 100%;
-  border-radius: 10px;
+  border-radius: 12px;
   background: #fff;
   padding: 5px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
+  transition: transform 0.3s ease;
 }
 
-.galerie video:hover,
-.galerie img:hover {
+.video-grid video:hover {
   transform: scale(1.03);
+}
+
+/* Image Grid */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.image-grid img {
+  width: 100%;
+  border-radius: 12px;
+  background: #fff;
+  padding: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.image-grid img:hover {
+  transform: scale(1.05);
 }
 
 /* ======== Prețuri ======== */
@@ -327,15 +366,19 @@ footer {
     font-size: 1rem;
   }
 
-  .descriere, .contact {
+  .descriere,
+  .contact {
     padding: 40px 20px;
   }
 
-  .descriere h2, .contact h2 {
+  .descriere h2,
+  .contact h2 {
     font-size: 26px;
   }
 
-  .descriere p, .contact p, .contact ul li {
+  .descriere p,
+  .contact p,
+  .contact ul li {
     font-size: 16px;
   }
 
