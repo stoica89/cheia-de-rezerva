@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Cheia de rezervă — Video animat (HTML)</title>
+    <style>
+      /* Reset */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial;
+        background: #0f1724;
+        color: #e6eef8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Container (acts like the "video frame") */
+      .hero {
+        width: 960px;
+        height: 540px;
+        background: linear-gradient(180deg, #081028 0%, #0f1724 100%);
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 20px 50px rgba(2, 6, 23, 0.7);
+      }
+
+      /* Common slide styles */
+      .slide {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        gap: 30px;
+        align-items: center;
+        padding: 48px;
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      .left {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .right {
+        width: 320px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      h1 {
+        font-size: 34px;
+        line-height: 1.05;
+        margin-bottom: 6px;
+      }
+      p {
+        font-size: 18px;
+        color: rgba(230, 238, 248, 0.9);
+      }
+      .small {
+        font-size: 14px;
+        color: rgba(230, 238, 248, 0.75);
+      }
+
+      /* Animated SVG key */
+      .key-wrap {
+        width: 260px;
+        height: 260px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      svg {
+        width: 220px;
+        height: 220px;
+      }
+
+      /* Slide animation timings (total ~25s). We'll create 5 slides and animate them in sequence. */
+
+      /* Keyframes for slide in/out */
+      @keyframes slideInOut {
+        0% {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+        8% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+        28% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+        36% {
+          transform: translateX(-100%);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(-100%);
+          opacity: 0;
+        }
+      }
+
+      /* Each slide gets the same duration but different delay so they play sequentially */
+      .s1 {
+        animation: slideInOut 25s linear infinite;
+      }
+      .s2 {
+        animation: slideInOut 25s linear infinite;
+        animation-delay: 5s;
+      }
+      .s3 {
+        animation: slideInOut 25s linear infinite;
+        animation-delay: 10s;
+      }
+      .s4 {
+        animation: slideInOut 25s linear infinite;
+        animation-delay: 15s;
+      }
+      .s5 {
+        animation: slideInOut 25s linear infinite;
+        animation-delay: 20s;
+      }
+
+      /* Accent / CTA */
+      .cta {
+        display: inline-block;
+        margin-top: 12px;
+        padding: 10px 16px;
+        border-radius: 10px;
+        background: linear-gradient(90deg, #ffd166, #ff8a00);
+        color: #081028;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      /* Small bullet list style */
+      .bullets {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 10px;
+      }
+      .bullet {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+      }
+      .dot {
+        min-width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #ffd166;
+        margin-top: 6px;
+      }
+
+      /* subtle key rotation */
+      .rotate {
+        animation: rotateKey 6s linear infinite;
+      }
+      @keyframes rotateKey {
+        0% {
+          transform: rotate(-6deg);
+        }
+        50% {
+          transform: rotate(6deg);
+        }
+        100% {
+          transform: rotate(-6deg);
+        }
+      }
+
+      /* logo */
+      .logo {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+      .logo .brand {
+        font-weight: 800;
+        font-size: 20px;
+      }
+      .logo .tag {
+        font-size: 12px;
+        color: rgba(230, 238, 248, 0.65);
+      }
+
+      /* footer strip */
+      .footer {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 48px;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(0, 0, 0, 0)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 18px;
+        font-size: 14px;
+        color: rgba(230, 238, 248, 0.65);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hero" role="img" aria-label="Video animat - Cheia de rezervă">
+      <!-- Slide 1: Intro brand -->
+      <section class="slide s1" aria-hidden="false">
+        <div class="left">
+          <div class="logo">
+            <div
+              style="
+                width: 44px;
+                height: 44;
+                border-radius: 8px;
+                background: linear-gradient(180deg, #ffd166, #ff8a00);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #081028;
+                font-weight: 800;
+              "
+            >
+              CR
+            </div>
+            <div>
+              <div class="brand">Cheia de rezerva</div>
+              <div class="tag">Copiere chei auto • Clonare transpondere</div>
+            </div>
+          </div>
+          <h1>Ai grijă de ce contează: cheia ta de rezervă</h1>
+          <p class="small">
+            Scurt, sigur, pregătit pentru orice: restaurăm, copiem și clonăm
+            chei auto — rapid și profesional.
+          </p>
+          <a class="cta" href="#contact">Solicită rapid</a>
+        </div>
+        <div class="right">
+          <div class="key-wrap rotate">
+            <!-- simple animated SVG key -->
+            <svg
+              viewBox="0 0 200 200"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden
+            >
+              <defs>
+                <linearGradient id="g1" x1="0" x2="1">
+                  <stop offset="0" stop-color="#ffd166" />
+                  <stop offset="1" stop-color="#ff8a00" />
+                </linearGradient>
+              </defs>
+              <g transform="translate(20,20)">
+                <rect
+                  x="0"
+                  y="80"
+                  rx="12"
+                  ry="12"
+                  width="120"
+                  height="32"
+                  fill="#081028"
+                  opacity="0.12"
+                />
+                <path
+                  d="M10 100 L40 80 L70 100 L90 90 L110 100"
+                  stroke="url(#g1)"
+                  stroke-width="10"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  fill="none"
+                />
+                <circle
+                  cx="10"
+                  cy="10"
+                  r="22"
+                  fill="url(#g1)"
+                  transform="translate(0,60)"
+                />
+                <circle
+                  cx="10"
+                  cy="10"
+                  r="8"
+                  fill="#081028"
+                  transform="translate(0,60)"
+                />
+              </g>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 2: Procesul de copiere -->
+      <section class="slide s2">
+        <div class="left">
+          <h1>Procesul nostru — transparent și sigur</h1>
+          <p class="small">
+            De la diagnostic la cheie finală: scanare, programare transponder,
+            testare funcțională.
+          </p>
+          <div class="bullets">
+            <div class="bullet">
+              <div class="dot"></div>
+              <div>
+                <strong>Scanare</strong> — identificăm tipul și codul cheii.
+              </div>
+            </div>
+            <div class="bullet">
+              <div class="dot"></div>
+              <div>
+                <strong>Clonare / programare</strong> — folosim echipamente
+                dedicate pentru toate modelele.
+              </div>
+            </div>
+            <div class="bullet">
+              <div class="dot"></div>
+              <div>
+                <strong>Verificare</strong> — testăm funcționalitatea 100%
+                înainte de predare.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right">
+          <!-- illustrative SVG showing small machine/programmer -->
+          <svg viewBox="0 0 160 160" width="220" height="220" aria-hidden>
+            <rect
+              x="12"
+              y="22"
+              width="136"
+              height="116"
+              rx="14"
+              fill="#081028"
+              opacity="0.12"
+            />
+            <rect x="26" y="36" width="108" height="88" rx="8" fill="#07132a" />
+            <rect x="40" y="50" width="80" height="12" rx="4" fill="#0b2540" />
+            <rect x="40" y="72" width="80" height="10" rx="4" fill="#0b2540" />
+            <rect x="40" y="92" width="80" height="14" rx="6" fill="url(#g1)" />
+          </svg>
+        </div>
+      </section>
+
+      <!-- Slide 3: Clonare chei auto (securitate) -->
+      <section class="slide s3">
+        <div class="left">
+          <h1>Clonare transpondere — când este necesar</h1>
+          <p class="small">
+            Pentru cheile moderne cu imobilizator, clonarea corectă asigură
+            funcționarea și securitatea vehiculului.
+          </p>
+          <p class="small">
+            Lucrăm cu coduri, copiere criptată și proceduri care respectă
+            protecția datelor și legalitatea.
+          </p>
+        </div>
+        <div class="right">
+          <div style="text-align: center">
+            <svg width="180" height="180" viewBox="0 0 100 100" aria-hidden>
+              <rect
+                x="0"
+                y="0"
+                width="100"
+                height="100"
+                rx="14"
+                fill="rgba(255,255,255,0.03)"
+              />
+              <text
+                x="50"
+                y="54"
+                font-size="14"
+                text-anchor="middle"
+                fill="#ffd166"
+                font-weight="700"
+              >
+                IMOB
+              </text>
+              <circle cx="50" cy="30" r="12" fill="#ff8a00" opacity="0.95" />
+              <text
+                x="50"
+                y="34"
+                text-anchor="middle"
+                font-size="10"
+                fill="#081028"
+              >
+                OK
+              </text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 4: Importanța unei chei de rezervă -->
+      <section class="slide s4">
+        <div class="left">
+          <h1>De ce ai nevoie de o cheie de rezervă?</h1>
+          <p class="small">
+            Economisești timp și bani — e mai ieftin să ai o rezervă decât să
+            chemi service sau să schimbi încuietoarea.
+          </p>
+          <div class="bullets">
+            <div class="bullet">
+              <div class="dot"></div>
+              <div><strong>Prevenție</strong> — pierdere sau defectare.</div>
+            </div>
+            <div class="bullet">
+              <div class="dot"></div>
+              <div>
+                <strong>Acces imediat</strong> — nu stai blocat pe marginea
+                drumului.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right">
+          <svg width="180" height="180" viewBox="0 0 100 100" aria-hidden>
+            <rect
+              width="100"
+              height="100"
+              rx="12"
+              fill="rgba(255,255,255,0.02)"
+            />
+            <path
+              d="M20 60 L40 30 L60 60 L80 30"
+              stroke="#ffd166"
+              stroke-width="6"
+              fill="none"
+              stroke-linecap="round"
+            />
+            <text
+              x="50"
+              y="85"
+              text-anchor="middle"
+              font-size="9"
+              fill="rgba(230,238,248,.9)"
+            >
+              Cheie rezervă = 
+              liniște
+            </text>
+          </svg>
+        </div>
+      </section>
+
+      <!-- Slide 5: CTA final -->
+      <section class="slide s5">
+        <div class="left">
+          <h1>Suntem gata să te ajutăm</h1>
+          <p class="small">
+            Programare rapidă — preț corect — garanție pe lucrare.
+          </p>
+          <a class="cta" href="tel:+40000000000">Sună acum</a>
+        </div>
+        <div class="right">
+          <svg width="160" height="160" viewBox="0 0 120 120" aria-hidden>
+            <circle cx="60" cy="60" r="54" fill="url(#g1)" />
+            <text
+              x="60"
+              y="66"
+              text-anchor="middle"
+              font-size="18"
+              fill="#081028"
+              font-weight="700"
+            >
+              SOS
+            </text>
+          </svg>
+        </div>
+      </section>
+
+      <div class="footer">
+        <div>Cheia de rezervă — copiere & clonare chei auto</div>
+        <div>www.cheiaderezerva.ro • +40 767 608 901</div>
+      </div>
+    </div>
+  </body>
+</html>

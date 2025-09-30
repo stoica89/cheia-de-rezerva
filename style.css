@@ -24,7 +24,7 @@ body {
   z-index: 1000;
 
   background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(2px);
   transition: background 0.3s ease;
 }
 
@@ -53,12 +53,12 @@ body {
 /* Banner */
 .banner {
   background: url("Images/banner.png") no-repeat center center/cover;
-  height: 70vh;
+  height: 80vh;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff; /* mai lizibil decât gri deschis */
+  color: rgb(247, 247, 247); /* mai lizibil decât gri deschis */
   text-align: center;
 }
 
@@ -100,7 +100,7 @@ body {
 /* ======== Secțiuni generale ======== */
 section {
   padding: 70px 20px;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: auto;
 }
 
@@ -161,7 +161,7 @@ section h2 {
   gap: 20px;
   list-style: none;
   margin: 0 auto 40px;
-  max-width: 900px;
+  max-width: 1100px;
 }
 
 .descriere ul li {
@@ -185,10 +185,26 @@ section h2 {
   margin-bottom: 8px;
 }
 
+/* Secțiune video animat */
+.hero-section {
+  display: flex;
+  justify-content: center;
+  padding: 0 10px; /* mic padding pe mobil */
+}
+
+.hero-iframe {
+  width: 100%;
+  max-width: 1100px;
+  aspect-ratio: 16/9;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(2,6,23,.7);
+}
+
 /* ======== Galerie ======== */
 .galerie {
   margin: 60px auto;
-  max-width: 1200px;
+  max-width: 1150px;
 }
 
 .galerie h2 {
@@ -246,26 +262,63 @@ section h2 {
   transform: scale(1.05);
 }
 
-/* ======== Prețuri ======== */
-.preturi ul {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.preturi li {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+/* ====== PREȚURI AUTO ====== */
+.price-section {
+  padding: 60px 20px;
+  background: #f9f9f9;
   text-align: center;
-  transition: transform 0.2s, border 0.3s;
 }
 
-.preturi li:hover {
-  transform: translateY(-5px);
-  border: 2px solid #e63946;
+.price-section h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #003366;
+}
+
+.price-section .subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.price-table {
+  overflow-x: auto;
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+.price-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.price-table th {
+  background: #003366;
+  color: #fff;
+  padding: 12px;
+  font-size: 1rem;
+  text-align: left;
+}
+
+.price-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.price-table tr:nth-child(even) {
+  background: #f2f2f2;
+}
+
+.disclaimer {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #555;
+  font-style: italic;
 }
 
 /* ======== Contact ======== */
@@ -382,6 +435,11 @@ footer {
     font-size: 16px;
   }
 
+  .hero-iframe {
+    aspect-ratio: auto; /* înălțimea se ajustează proporțional */
+    height: 220px; /* înălțime minimă vizibilă */
+  }
+
   .descriere h3 {
     font-size: 20px;
   }
@@ -404,6 +462,9 @@ footer {
 
   .banner {
     height: 50vh;
+  }
+  .hero-iframe {
+    height: 180px;
   }
 
   .banner-overlay h1 {
