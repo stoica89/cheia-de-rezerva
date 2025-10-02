@@ -89,6 +89,7 @@ body {
   font-weight: bold;
   margin-bottom: 15px;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* claritate pe orice fundal */
+  margin-left: 30px;
 }
 
 .banner p {
@@ -96,7 +97,7 @@ body {
   max-width: 700px;
   margin: 0 auto;
   line-height: 1.5;
-  padding-left: 100px;
+  margin-left: 200px;
 }
 
 /* ======== Secțiuni generale ======== */
@@ -300,6 +301,8 @@ section h2 {
   padding: 60px 20px;
   background: #f9f9f9;
   text-align: center;
+  margin-top: 50px;
+  max-width: 970px;
 }
 
 .price-section h2 {
